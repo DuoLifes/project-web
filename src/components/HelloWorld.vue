@@ -11,7 +11,7 @@
     <!-- 表示应谨慎采取的动作 -->
     <button type="button" class="btn btn-warning">警告按钮</button>
     <!-- 表示一个危险的或潜在的负面动作 -->
-    <button type="button" class="btn btn-danger">危险按钮</button>
+    <button type="button" class="btn btn-danger" @click="onclick">危险按钮</button>
     <!-- 并不强调是一个按钮，看起来像一个链接，但同时保持按钮的行为 -->
     <button type="button" class="btn btn-link">链接按钮</button>
   </div>
@@ -22,6 +22,14 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
+
+    }
+  },
+  created () {
+
+  },
+  methods: {
+    onclick () {
 
     }
   }
