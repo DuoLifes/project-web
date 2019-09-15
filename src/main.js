@@ -1,23 +1,24 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
+import 'babel-polyfill'
 import Vue from 'vue'
+import Vuex from 'vuex'
 import App from './App'
 import router from './router'
-import $ from 'jquery'
-import axios from 'axios'
-import bootstrapCss from 'bootstrap/dist/css/bootstrap.min.css'
-import bootstrapJs from 'bootstrap/dist/js/bootstrap.min.js'
+import eventBus from './util/busEvent.js'
+import axiosService from './util/axiosService.js'
+import store from './store/index.js'
 
+Vue.use(Vuex)
+Vue.use(axiosService)
+Vue.prototype.eventBus = eventBus
 Vue.config.productionTip = false
-Vue.prototype.$http = axios
 
 /* eslint-disable no-new */
-new Vue({
-  el: '#app',
+let app = new Vue({
   router,
-  $,
-  bootstrapCss,
-  bootstrapJs,
+  store,
   components: { App },
   template: '<App/>'
 })
+app.$mount('#app')
